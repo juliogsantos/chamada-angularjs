@@ -1,0 +1,53 @@
+ 
+<div class="row" ng-hide="loading">
+  <div class="aguarde valign-wrapper">
+    <h1  class="brown-text centralizado">Aguarde</h1>
+  </div>
+</div>
+<div class="row" ng-show="loading">
+  <div class="col s12 m6 l4" ng-repeat="x in lista">
+      <div class="card horizontal hoverable">
+      <div class="card-image valign">
+       
+         <i ng-show="x.presenca"  style="" class="material-icons verde icone">check</i>
+         <i ng-hide="x.presenca"  style="" class="material-icons vermelho icone">close</i>
+         <img class="foto" style="" src="./img/{{x.nome}}.jpg">
+        
+       <!--  <i style="z-index: 999; display: block; position: absolute;" class="material-icons large verde">check</i>
+        <img class="foto" style="z-index: 0; display: block; position: relative;" src="./img/{{x.nome}}.jpg"> -->
+      </div>
+      <div class="card-stacked">
+      <div class="card-content valign"  ng-class="x.presenca ? 'teal' : 'red'">
+        <p class="white-text center-align">{{x.nome}}</p>
+      </div>
+      <div class="card-action center-align">
+        <a href="" ng-hide="x.presenca"  class="btn waves-effect waves-light" ng-click="presenca(x)">
+         <i class="material-icons">check</i>
+        </a> 
+        <a ng-show="x.presenca" href="" class="btn waves-effect waves-light red" ng-click="presenca(x)">
+         <i class="material-icons">close</i>
+        </a> 
+      </div>
+    </div>
+  </div>
+    <div class="fixed-action-btn horizontal">
+      <a class="btn-floating btn-large purple darken-4 waves-effect waves-light">
+        <i class="large material-icons">menu</i>
+      </a>
+      <ul>
+        <!-- <li><a href="" class="btn-floating grey darken-1 " ng-click="presencaTodos()"><i class="material-icons">check</i></a></li> -->
+        <li><a href="" class="btn-floating waves-effect waves-light red" ng-click="faltaTodos()"><i class="material-icons">close</i></a></li>
+        <li><a href="" class="btn-floating waves-effect waves-light brown" ng-click="inverter()"><i class="material-icons">swap_vert</i></a></li>
+        <li><a href="" class="btn-floating waves-effect waves-light blue" ng-click="finalizarChamada()"><i class="material-icons">send</i></a></li>
+      </ul>
+    </div>
+</div>
+</div>
+
+
+
+<script type="text/javascript">
+  $(document).ready(function() {
+  $('select').material_select();
+  });
+</script>

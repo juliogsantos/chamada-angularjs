@@ -1,0 +1,22 @@
+
+<div class="row">
+<form class="col s12 m12 l12">
+  <div class="row valign-wrapper">
+    <div class="input-field col s12 m12 l12 valign">
+     <select ng-model="serieSelecionada">
+      <option value="" disabled selected>Escolha a série</option>
+      <option  ng-repeat="s in series" value="{{s.id}}">{{s.id}} - {{s.serie}}</option>
+    </select>
+    <label>Série</label>
+    </div>
+   
+    <div class="input-field col s12 m12 l12 valign">
+	 <textarea  class="materialize-textarea"></textarea>
+	 <label>Tema</label>
+    </div>
+    <div class="input-field col s12 m12 l12">
+     <a href="" class="btn">ok</a>
+    </div>
+  </div>
+</form>
+</div>
