@@ -5,7 +5,7 @@ angular.module('jgs').controller('main', function($scope, $timeout, alunoService
 	$scope.tema = {};
 	$scope.turmaSelecionada = {};	 
 	$scope.enviado = false;
-	$scope.loading = true;
+	$scope.loading = false;
 
 	$scope.turmas = [{"turma" : 701, "diaSemana": "terça-feira"}, {"turma" : 702, "diaSemana": "terça-feira"}, {"turma" : 703, "diaSemana": "terça-feira"}];
 
@@ -13,15 +13,17 @@ angular.module('jgs').controller('main', function($scope, $timeout, alunoService
 	
 	$scope.listarAlunos = function(){
 
-   		alunoService.getAlunos().then(function(data){
-    		$scope.lista = data;
-      });}
+   	alunoService.getAlunos().then(function(data){
+			$scope.lista = data;	
+	  });
+	}
 
    $scope.presenca = function(x){
 
    		objIndex = $scope.lista.indexOf(x);
 
-   		$scope.lista[objIndex].presenca = !$scope.lista[objIndex].presenca;}
+		$scope.lista[objIndex].presenca = !$scope.lista[objIndex].presenca;
+	}
 
   /* $scope.presencaTodos = function(){
    		for (var i = 0; i < $scope.lista.length; i++) {
@@ -31,15 +33,14 @@ angular.module('jgs').controller('main', function($scope, $timeout, alunoService
    $scope.faltaTodos = function(){
    		for (var i = 0; i < $scope.lista.length; i++) {
    			$scope.lista[i].presenca = false;
-   		}}
+		   }
+	}
 
    $scope.inverter = function(){
-
    		for (var i = 0; i < $scope.lista.length; i++) {
-
    			$scope.lista[i].presenca = !$scope.lista[i].presenca;
-
-   		}}
+		   }
+	}
 
    
  /* $scope.enviadoBtnOnOff = function(value){
@@ -49,9 +50,7 @@ angular.module('jgs').controller('main', function($scope, $timeout, alunoService
    }*/
 
   $scope.loadingScreenOnOff = function(value){
-
 		$scope.loading = value;
-
    }
 
   $scope.finalizarChamada = function(){
