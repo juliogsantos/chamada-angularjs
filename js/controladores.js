@@ -31,13 +31,13 @@ angular.module('jgs').controller('main', function($scope, $timeout, alunoService
    		}}*/
 
    $scope.faltaTodos = function(){
-   		for (var i = 0; i < $scope.lista.length; i++) {
+   		for (let i = 0; i < $scope.lista.length; i++) {
    			$scope.lista[i].presenca = false;
 		   }
 	}
 
    $scope.inverter = function(){
-   		for (var i = 0; i < $scope.lista.length; i++) {
+   		for (let i = 0; i < $scope.lista.length; i++) {
    			$scope.lista[i].presenca = !$scope.lista[i].presenca;
 		   }
 	}
