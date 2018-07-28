@@ -86,5 +86,4 @@ angular.module('jgs').controller('tema', function($scope, serieService) {
   $scope.salvarTema = function(){
 
   }
-s
 });
