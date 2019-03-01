@@ -55,19 +55,25 @@ angular.module('jgs').controller('main', function($scope, $timeout, alunoService
 
   $scope.finalizarChamada = function(){
 
-   	 $scope.loadingScreenOnOff(false);
+   	 $scope.loadingScreenOnOff(true);
 
 	   $scope.aula = {"dia": $scope.dia, "tema": $scope.tema, "alunos": $scope.lista};
 
-	   $timeout(function(){ $scope.enviadoBtnOnOff(false);  }, 3000);
+	   $timeout(function(){ 
+		   $scope.enviadoBtnOnOff(false);  
+		}, 3000);
 
-	   $timeout(function(){ Materialize.toast("Chamada finalizada com sucesso!!!", 4000);  }, 4000);
+	   $timeout(function(){ 
+		   Materialize.toast("Chamada finalizada com sucesso!!!", 4000);  
+		   $scope.loadingScreenOnOff(false);
+		}, 4000);
+
+	   
 
 	   $scope.listarAlunos();
 
   	  console.log($scope.aula);
 
-  	  $scope.loadingScreenOnOff(true);
    }
 
    $scope.listarAlunos();
